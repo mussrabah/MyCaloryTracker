@@ -6,7 +6,8 @@ import com.musscoding.tracker_data.local.entity.TrackedFoodEntity
 
 @Database(
     entities = [TrackedFoodEntity::class],
-    version = 1
+    version = 1,
+    exportSchema = true
 )
 abstract class TrackerDatabase: RoomDatabase() {
     abstract val dao: TrackerDao
