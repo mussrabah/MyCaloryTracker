@@ -28,7 +28,7 @@ class TrackerOverviewViewModel @Inject constructor(
         private set
 
     private val _uiEvent = Channel<UiEvent>()
-    private val uiEvent = _uiEvent.receiveAsFlow()
+    val uiEvent = _uiEvent.receiveAsFlow()
 
     private var getFoodsForDateJob: Job? = null
 

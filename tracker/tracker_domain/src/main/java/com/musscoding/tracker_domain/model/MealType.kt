@@ -2,9 +2,9 @@ package com.musscoding.tracker_domain.model
 
 sealed class MealType(val name: String) {
     object Breakfast: MealType("breakfast")
-    object Lunch: MealType("breakfast")
-    object Dinner: MealType("breakfast")
-    object Snack: MealType("breakfast")
+    object Lunch: MealType("lunch")
+    object Dinner: MealType("dinner")
+    object Snack: MealType("snack")
 
     companion object {
         fun fromString(name: String): MealType {
