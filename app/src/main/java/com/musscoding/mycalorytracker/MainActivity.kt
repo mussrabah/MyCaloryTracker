@@ -13,6 +13,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.musscoding.core.domain.preferences.Preferences
 import com.musscoding.core.navigation.Route
 import com.musscoding.mycalorytracker.navigation.navigate
 import com.musscoding.mycalorytracker.ui.theme.MyCaloryTrackerTheme
@@ -27,11 +28,16 @@ import com.musscoding.onboarding_presentation.welcome.WelcomeScreen
 import com.musscoding.tracker_presentation.search.SearchScreen
 import com.musscoding.tracker_presentation.tracker_overview.TrackerOverviewScreen
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var preferences: Preferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val shouldShowOnboarding = preferences.loadShouldShowOnboarding()
         setContent {
             MyCaloryTrackerTheme {
                 val navController = rememberNavController()
@@ -42,7 +48,8 @@ class MainActivity : ComponentActivity() {
                 ) {padding ->
                     NavHost(
                         navController = navController,
-                        startDestination = Route.WELCOME,
+                        startDestination = if (shouldShowOnboarding) Route.WELCOME
+                        else Route.TRACKER_OVERVIEW,
                         modifier = Modifier.padding(padding)
                     ) {
                         composable(Route.WELCOME) {

@@ -33,6 +33,7 @@ class TrackerOverviewViewModel @Inject constructor(
     private var getFoodsForDateJob: Job? = null
 
     init {
+        refreshFoods()
         //this to not show onboarding screens next time next time
         preferences.saveShouldShowOnboarding(false)
     }
