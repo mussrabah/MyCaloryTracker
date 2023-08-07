@@ -26,7 +26,7 @@ import com.musscoding.onboarding_presentation.components.UnitTextField
 @Composable
 fun WeightScreen(
     scaffoldState: ScaffoldState,
-    onNavigate: (UiEvent.Navigate) -> Unit,
+    onNextClick: () -> Unit,
     viewModel: WeightViewModel = hiltViewModel()
 ) {
     val spacing = LocalSpacing.current
@@ -36,7 +36,7 @@ fun WeightScreen(
         viewModel.uiEvent.collect {event ->
             //if the event isn't for navigation then we just wanna ignore it
             when(event) {
-                is UiEvent.Navigate -> onNavigate(event)
+                is UiEvent.Success -> onNextClick()
                 is UiEvent.ShowSnackbar -> {
                     scaffoldState.snackbarHostState.showSnackbar(
                         message = event.message.asString(context)

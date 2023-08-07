@@ -1,4 +1,4 @@
-package com.musscoding.core.navigation
+package com.musscoding.mycalorytracker.navigation
 
 object Route {
     //on-boarding route

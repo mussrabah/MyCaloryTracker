@@ -1,5 +1,6 @@
 package com.musscoding.tracker_presentation.tracker_overview.components
 
+import android.util.Log
 import androidx.compose.animation.core.Animatable
 import androidx.compose.foundation.Canvas
 import androidx.compose.material.MaterialTheme
@@ -24,7 +25,6 @@ fun NutrientsBar(
 ) {
     val background = MaterialTheme.colors.background
     val caloriesExceedColor = MaterialTheme.colors.error
-
     //Now we want to create animation for carbs, protein and fat values in order
     //to animate the numbers
     val carbWidthRatio = remember {
@@ -48,13 +48,13 @@ fun NutrientsBar(
     }
     LaunchedEffect(key1 = protein) {
         //we want to animate the number in the bar so every 1 protein = 4 kcal
-        carbWidthRatio.animateTo(
+        proteinWidthRatio.animateTo(
             targetValue = ((protein * 4f) / calorieGoal)
         )
     }
     LaunchedEffect(key1 = fat) {
         //we want to animate the number in the bar so every 1 fat = 9 kcal
-        carbWidthRatio.animateTo(
+        fatWidthRatio.animateTo(
             targetValue = ((fat * 9f) / calorieGoal)
         )
     }

@@ -7,7 +7,7 @@ sealed class UiEvent {
     //showing a snack-bar ..etc. Basically everything we will like
     //to do on the UI just once.(once because that's not a state)
 
-    data class Navigate(val route: String): UiEvent()
+    object Success: UiEvent()
     object NavigateUp: UiEvent()
 
     data class ShowSnackbar(val message: UiText): UiEvent()

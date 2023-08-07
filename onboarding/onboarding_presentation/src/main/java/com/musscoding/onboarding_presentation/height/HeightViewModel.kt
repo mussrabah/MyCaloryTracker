@@ -10,7 +10,6 @@ import com.musscoding.core.domain.use_case.FilterOutDigits
 import com.musscoding.core.util.UiEvent
 import com.musscoding.core.util.UiText
 import com.musscoding.core.R
-import com.musscoding.core.navigation.Route
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -51,7 +50,7 @@ class HeightViewModel @Inject constructor(
                 return@launch
             }
             preferences.saveHeight(heightNumber)
-            _uiEvent.send(UiEvent.Navigate(Route.WEIGHT))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }

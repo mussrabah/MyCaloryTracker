@@ -28,7 +28,7 @@ import com.musscoding.onboarding_presentation.components.SelectableButton
 
 @Composable
 fun ActivityScreen(
-    onNavigate: (UiEvent.Navigate) -> Unit,
+    onNextClick: () -> Unit,
     viewModel: ActivityViewModel = hiltViewModel()
 ) {
     val spacing = LocalSpacing.current
@@ -37,7 +37,7 @@ fun ActivityScreen(
         viewModel.uiEvent.collect {event ->
             //if the event isn't for navigation then we just wanna ignore it
             when(event) {
-                is UiEvent.Navigate -> onNavigate(event)
+                is UiEvent.Success -> onNextClick()
                 else -> Unit
             }
         }
