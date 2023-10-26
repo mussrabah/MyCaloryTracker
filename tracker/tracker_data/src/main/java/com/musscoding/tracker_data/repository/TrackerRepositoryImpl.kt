@@ -14,7 +14,8 @@ import java.time.LocalDate
 
 //we've implemented the repository here instead of domain module
 //because we don't want our use cases to access the implementation of our repository
-//also this helps making testing easy by creating another class that inherits from TrackerRepository
+//also this helps making testing easy by creating another class that inherits from
+// TrackerRepository
 class TrackerRepositoryImpl(
     private val dao: TrackerDao,
     private val api: OpenFoodApi
