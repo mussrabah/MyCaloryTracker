@@ -1,6 +1,8 @@
 package com.musscoding.onboarding_domain.use_case
 
 import com.musscoding.core.util.UiText
+//import com.musscoding.mycalorytracker.R
+
 import com.musscoding.core.R
 
 class ValidateNutrients {

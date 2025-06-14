@@ -25,6 +25,7 @@ import com.musscoding.core.R
 import com.musscoding.core.domain.model.Gender
 import com.musscoding.onboarding_presentation.components.ActionButton
 import com.musscoding.onboarding_presentation.components.SelectableButton
+import kotlinx.coroutines.flow.collect
 
 @Composable
 fun GenderScreen(

@@ -48,7 +48,8 @@ class NutrientGoalViewModel @Inject constructor(
                 val result = validateNutrients(
                     carbsRatioText = state.carbsRatio,
                     proteinRatioText = state.proteinRatio,
-                    fatRatioText = state.fatRatio
+                    fatRatioText = state.fatRatio,
+
                 )
                 when(result) {
                     is ValidateNutrients.Result.Success -> {
